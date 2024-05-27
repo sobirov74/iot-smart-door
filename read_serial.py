@@ -57,7 +57,7 @@ import serial
 import requests
 
 # Set up the serial connection (adjust COM port as needed)
-ser = serial.Serial('/dev/tty.usbmodem21201', 9600)  # Adjust this to match your Arduino's port
+ser = serial.Serial('/dev/ttyACM0', 9600)  # Adjust this to match your Arduino's port
 
 def send_post_request():
     url = 'http://localhost:8000/door_opened'

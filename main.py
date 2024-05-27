@@ -8,7 +8,7 @@ app = FastAPI()
 
 # Allow all origins (for development purposes)
 origins = [
-    "http://localhost:8080",  # Frontend address, add more if needed
+    "http://192.168.64.138:8080",  # Frontend address, add more if needed
 ]
 
 app.add_middleware(
@@ -37,4 +37,5 @@ async def get_door_events():
 
 if __name__ == '__main__':
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    # Replace 'YOUR_IP_ADDRESS' with the host laptop's IP address
+    uvicorn.run(app, host="192.168.64.138", port=8000)
