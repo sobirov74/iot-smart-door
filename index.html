@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Door Open Events</title>
+  </head>
+  <body>
+    <h1>Door Open Events</h1>
+    <ul id="eventsList"></ul>
+
+    <script>
+      async function fetchEvents() {
+        const response = await fetch("http://localhost:8000/door_events");
+        const events = await response.json();
+        const eventsList = document.getElementById("eventsList");
+        eventsList.innerHTML = "";
+        events.forEach((event) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = `Door opened at ${event.timestamp}`;
+          eventsList.appendChild(listItem);
+        });
+      }
+
+      // Fetch events every 5 seconds
+      setInterval(fetchEvents, 5000);
+      fetchEvents(); // Initial fetch
+    </script>
+  </body>
+</html>
